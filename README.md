@@ -17,7 +17,7 @@ This project implements a RESTful API using Java Spring Boot and a FHIR library 
 1. Clone this repository:
 
    ```bash
-   git clone [https://github.com/your-username/fhir-crud-java-springboot.git](https://github.com/Supernorwood/fhir-api.git)
+   git clone https://github.com/Supernorwood/fhir-api.git
    ```
 
 2. Navigate to the project directory:
