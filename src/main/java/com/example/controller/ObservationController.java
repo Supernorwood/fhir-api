@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.r4.model.CodeableConcept;
@@ -18,9 +19,20 @@ public class ObservationController {
         Observation observation = new Observation();
         observation.setId(id);
         observation.setStatus(Observation.ObservationStatus.FINAL);
-        observation.setCategory((List<CodeableConcept>) new CodeableConcept().addCoding(new Coding(
-                "http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs", "Vital Signs")));
+
+        // Create a CodeableConcept for the category
+        CodeableConcept category = new CodeableConcept();
+        category.addCoding(new Coding(
+                "http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs", "Vital Signs"));
+
+        // Create a list and add the category
+        List<CodeableConcept> categories = new ArrayList<>();
+        categories.add(category);
+        observation.setCategory(categories);
+
+        // Set the code
         observation.setCode(new CodeableConcept().addCoding(new Coding("http://loinc.org", "8867-4", "Heart rate")));
+
         return new ResponseEntity<>(observation, HttpStatus.OK);
     }
 
