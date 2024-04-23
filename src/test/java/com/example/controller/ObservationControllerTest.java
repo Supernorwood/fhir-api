@@ -32,6 +32,7 @@ public class ObservationControllerTest {
 
     @BeforeEach
     void setUp() {
+        // Set up any common configuration for your mocked request or response here
     }
 
     @Test
